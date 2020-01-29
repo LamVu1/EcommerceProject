@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myshop</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAB/oABBvwgDU1NQAMFhcAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVVVVVVVVUABVVVVVVVVVRFVVVVVVVVAAAAAAAAAAAAAREREREREQABERERERERFEEREREREREAAAAAAAAAAAACIiIiIiIiAAIiIiIiIiIkQiIiIiIiIgAAAAAAAAAAAAMzMzMzMzMAAzMzMzMzMzRDMzMzMzMzAAAAAAAAAAAAAABwAAAAAAAAAHAAD//wAAAAcAAAAAAAAABwAA//8AAAAHAAAAAAAAAAcAAP//AAAABwAAAAAAAAAHAAD//wAA" rel="icon" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

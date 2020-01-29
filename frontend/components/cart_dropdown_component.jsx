@@ -1,0 +1,59 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { toggleCartHidden } from '../reducers/cart/cart_actions';
+
+
+
+class CartDropDown extends React.Component{
+    constructor(){
+        super();
+        
+    }
+    
+    render(){
+        
+        let {cartItems} = this.props
+
+        let itemList = cartItems.map((item,idx)=>{
+            return(
+                <div key={idx}>
+                    <img key={`image${idx}`} className='item-page-image' src={item.photoUrls}/>
+                    <p key={`title${idx}`}>{item.title}</p>
+                    <p key={`price${idx}`}>${item.price}</p>
+                    <p key={`quantity${idx}`}>qty: {item.quantity}</p>
+    
+                </div>
+            )
+        })
+
+        return(
+            <div className='cart-dropdown'>
+            <ul>
+                {itemList}
+            </ul>
+                <button onClick={() => {
+                    this.props.history.push('/checkout');
+                    this.props.toggleCartHidden()}}>
+                        Checkout
+                </button>
+            </div>        
+        )
+    }
+} 
+    
+
+
+
+const mapStateToProps = (state, ownProps)=>({
+    cartItems: Object.values(state.cart.cartItems),
+    history: ownProps.history
+  });
+
+const mapDispatchToProps = dispatch => ({
+    toggleCartHidden: () => dispatch(toggleCartHidden())
+})
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropDown));

@@ -1,0 +1,24 @@
+.item{
+    font-family: 'Raleway', sans-serif;
+}
+
+.item-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+
+.item-image{
+    height: 250px;
+    width: 300px;
+
+}
+.item-image:hover{
+    opacity: .7;
+}

@@ -1,0 +1,19 @@
+.checkout-page {
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        text-align: center;
+    }
+}
+.checkout-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.check-out-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
