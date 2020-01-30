@@ -1,11 +1,17 @@
 .item{
     font-family: 'Raleway', sans-serif;
+    // height: 25%;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 5px;
 }
 
 .item-detail {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
 
     a {
         text-decoration: none;
@@ -15,8 +21,8 @@
 
 
 .item-image{
-    height: 250px;
-    width: 300px;
+    height: 80%;
+    width: 100%;
 
 }
 .item-image:hover{
