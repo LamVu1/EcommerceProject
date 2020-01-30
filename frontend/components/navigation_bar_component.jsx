@@ -18,13 +18,14 @@ class NagivationBar extends React.Component{
     const { logout, currentUser, toggleCartHidden, hidden } = this.props;
     
       let content;
-      if(currentUser){
+     
           content = <div className="header">
-                        <Link className='logo' to='/shop'>Logo</Link>
+                        <Link to='/shop'><img className='logo' src={window.img1}/></Link>
                         <div className='right-bar-content'>
                             <button className='cart' onClick={toggleCartHidden}>
                                 <i className="fas fa-shopping-cart"></i>      
                             </button>
+                            <button onClick={logout}>Log Out</button>
                         </div>
                         
                         {hidden 
@@ -37,7 +38,7 @@ class NagivationBar extends React.Component{
                             </div>
                         }
                     </div>
-      }
+      
      
     return(
       <div>
