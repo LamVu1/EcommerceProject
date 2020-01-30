@@ -8,6 +8,10 @@
 
 require 'open-uri'
 
+User.destroy_all
+demoUser = User.create!(username: 'Demo', email: 'Demo@email.com', password: '123456')
+
+
 Product.destroy_all
 
 product1 = Product.create!(title: 'test shoe', description: 'test shoe description', price: 100)

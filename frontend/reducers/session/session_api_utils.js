@@ -29,7 +29,7 @@ export const login = user => {
       $.ajax(
         {
           method: 'DELETE',
-          url: '/api/session'
+          url: '/api/sessions'
         }
       )
     )

@@ -4,13 +4,19 @@ import { logout } from '../reducers/session/session_actions';
 import { Link } from 'react-router-dom';
 import CartDropdown from '../components/cart_dropdown_component';
 import { toggleCartHidden } from '../reducers/cart/cart_actions';
+import { withRouter } from 'react-router-dom';
 
 
 class NagivationBar extends React.Component{
   constructor(){
     super();
- 
+    this.handleLogout = this.handleLogout.bind(this);
   }
+
+  handleLogout(){
+    this.props.logout().then(()=>{this.props.history.push('/')})
+  }
+
 
   render(){
 
@@ -21,12 +27,15 @@ class NagivationBar extends React.Component{
      
           content = <div className="header">
                         <Link to='/shop'><img className='logo' src={window.img1}/></Link>
-                        <div className='right-bar-content'>
+                        {currentUser
+                         ? <div className='right-bar-content'>
                             <button className='cart' onClick={toggleCartHidden}>
                                 <i className="fas fa-shopping-cart"></i>      
                             </button>
-                            <button onClick={logout}>Log Out</button>
-                        </div>
+                            <button onClick={this.handleLogout}>Log Out</button>
+                           </div>
+                          : null
+                        }
                         
                         {hidden 
                             ? null
@@ -48,10 +57,11 @@ class NagivationBar extends React.Component{
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
       return({currentUser: state.session.id,
             hidden: state.cart.hidden,
-            cartItems: state.cart.cartItems
+            cartItems: state.cart.cartItems,
+            history: ownProps.history
         })
 }
 
@@ -61,4 +71,4 @@ const mapStateToProps = (state) => {
   })
 
 
-  export default connect(mapStateToProps, mapDispatchToProps)(NagivationBar);
+  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NagivationBar));
