@@ -15,6 +15,7 @@ class SignIn extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleChange(e){
@@ -28,6 +29,41 @@ class SignIn extends React.Component {
     this.props.login(user).then(this.props.history.push('/shop'));
   }
 
+  handleDemo(){
+    
+
+    // let demoUsername = "Demo".split('');
+    // let demoPassword = [1,2,3,4,5,6];
+  
+    // this.setState({ username: '', password: '' });
+    
+    // document.getElementsByClassName('login-btn')['disabled'] = true;
+    // document.getElementsByClassName('demo-login-btn')['disabled']= true
+
+   
+    const demo = {username: 'Demo', password: 123456}
+    this.props.login(demo).then(this.props.history.push('/shop'));
+
+
+
+    // const ghost = (string, field) => () => {
+    //   if (string.length > 0) {
+    //     this.setState({ [field]: this.state[field] + string[0] });        
+    //     setTimeout(ghost(string.slice(1), field), 90);
+    //   }
+    // }
+    //   const demoUsername = "Demo"; 
+    //   const demoPassword = '123456';
+    //   ghost(demoUsername, "username")();
+    //   ghost(demoPassword, "password")();
+      
+    //   // const user = Object.assign({}, this.state);
+    //   setTimeout( console.log(this.state), 1200);
+    //   console.log(this.state)
+
+
+  }
+
   render() {
 
     const {username, email, password} = this.state;
@@ -38,7 +74,8 @@ class SignIn extends React.Component {
         <form className='sign-in-form'>
             <input type="text" name='username' placeholder='Username' value={username} onChange={this.handleChange}/>
             <input type="text" name='password' placeholder='Password' value={password} onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button className='login-btn' onClick={this.handleSubmit}>Submit</button>
+            <button className='demo-login-btn' onClick={this.handleDemo}>Demo User login</button>
         </form>
       </div>
     );

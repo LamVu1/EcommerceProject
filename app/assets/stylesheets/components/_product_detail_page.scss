@@ -11,8 +11,9 @@
 }
 
 .item-page-image{
-    height: 20%;
-    width: 50%;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 5px;
 }
 
 .item-page-detail-section{
@@ -23,9 +24,4 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.item-page-image{
-    height: 100px;
-    width: 100px;
 }

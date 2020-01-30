@@ -1,8 +1,19 @@
 .shop-page{
+    box-sizing: border-box;
+    padding: 25px;
 
     .shop-page-shoes{
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: wrap;
+        justify-content: space-around;
+    }
+
+    // .grid::after {
+    //     content: "";
+    //     flex: auto;
+    //   }
+
+    .empty-div{
+        width: 25%;
     }
 }

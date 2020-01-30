@@ -32,6 +32,9 @@ class ShopPage extends React.Component {
                 <div>SHOP PAGE</div>
                 <div className='shop-page-shoes'>
                     {products}
+                    <div className='empty-div'></div>
+                    <div className='empty-div'></div>
+                    <div className='empty-div'></div>
                 </div>
             </div>
         )
