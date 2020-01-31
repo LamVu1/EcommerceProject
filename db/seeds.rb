@@ -16,7 +16,9 @@ Product.destroy_all
 
 product1 = Product.create!(title: 'test shoe 1', description: 'test shoe description 1', price: 100)
 file1 = open('https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoe1.jpg')
+file11 = open('https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/ezgif.com-webp-to-jpg.jpg')
 product1.photos.attach(io: file1, filename: 'shoe1.jpg')
+product1.photos.attach(io: file11, filename: 'shoe11.jpg')
 
 
 product2 = Product.create!(title: 'test shoe 2', description: 'test shoe 2 description', price: 100)
