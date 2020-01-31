@@ -13,7 +13,7 @@ import {
         case RECEIVE_ALL_PRODUCTS:
             return action.products;
         case RECEIVE_PRODUCT:
-          return({...oldstate, ...action.products})
+          return({...oldstate, ...action.product})
           // return( Object.assign({}, oldstate, action.product))
         default:
             return oldstate;

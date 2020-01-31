@@ -20,6 +20,7 @@ import ShopPage from '../pages/shop_page';
 import NagivationBar from '../components/navigation_bar_component';
 import productDetail from '../pages/product_detail_page';
 import CheckoutPage from '../pages/checkout_page';
+import Footer from '../components/footer_component';
 
 const App = () => (
   
@@ -32,6 +33,7 @@ const App = () => (
         <Route  path='/' component={LandingPage}/> 
         <Redirect to="/" />
      </Switch>
+     <Footer />
   </div>
   
 );

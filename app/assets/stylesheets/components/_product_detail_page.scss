@@ -1,23 +1,27 @@
 .item-page{
-    border: red solid;
     display: flex;
     flex-direction: row;
     height: 90vh;
     padding: 20px;
+    padding: 20px 75px;
 }
 
 .item-page-image-section{
     width: 66vw;
+    margin-right: 50px;   
 }
 
 .item-page-image{
     box-sizing: border-box;
-    width: 25%;
+    width: 50%;
     padding: 5px;
 }
-
+.detail-page-empty-div{
+    width: 50%;
+}
 .item-page-detail-section{
     width: 33vw;
+
 }
 
 .item-page-detail-top{
