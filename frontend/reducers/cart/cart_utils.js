@@ -2,19 +2,24 @@ export const addItemToCart = (cartItems, cartItemToAdd)=>{
   
     let cartItemsArr = Object.values(cartItems)
       const existingCartItem = cartItemsArr.find(
-          cartItem => cartItem.id ===cartItemToAdd.id
+          cartItem => {
+              cartItem.id === cartItemToAdd.id && cartItem.size === cartItemToAdd.size
+            }
       );
   
+      
       if(existingCartItem){
-          return cartItemsArr.map(cartItem => 
-              cartItem.id === cartItemToAdd.id 
-              ?{
-                  ...cartItem, quantity: cartItem.quantity + 1
+          return cartItemsArr.map((cartItem) => {
+            if(cartItem.id ===cartItemToAdd.id && cartItem.size === cartItemToAdd.size)
+              {
+                 return({...cartItem, quantity: cartItem.quantity + 1})
               }
-              : cartItem
-              )
-      }
-  
+            else{ 
+              return(cartItem)
+            }
+          })
+        }
+        
       return [...cartItemsArr, {...cartItemToAdd, quantity: 1}]
   }
   

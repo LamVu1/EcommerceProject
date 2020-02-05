@@ -2,11 +2,10 @@ import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../session/session_ac
 
 
 const usersReducer = (state = {}, action) => {
-  let nextState;
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({},state, { [action.currentUser.id]:action.currentUser });
+      return Object.assign({},state, { [action.currentUser.id]: action.currentUser });
     case LOGOUT_CURRENT_USER:
       return {}
     default:

@@ -26,10 +26,10 @@ class SignIn extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user).then(this.props.history.push('/shop'));
+    this.props.login(user).then( res => this.props.history.push('/shop'));
   }
 
-  handleDemo(){
+  handleDemo(e){
     
 
     // let demoUsername = "Demo".split('');
@@ -40,9 +40,13 @@ class SignIn extends React.Component {
     // document.getElementsByClassName('login-btn')['disabled'] = true;
     // document.getElementsByClassName('demo-login-btn')['disabled']= true
 
-   
+    e.preventDefault();
     const demo = {username: 'Demo', password: 123456}
-    this.props.login(demo).then(this.props.history.push('/shop'));
+    this.props.login(demo)
+    .then( res => 
+      {
+        this.props.history.push('/shop')}
+    );
 
 
 
@@ -75,7 +79,7 @@ class SignIn extends React.Component {
             <input type="text" name='username' placeholder='Username' value={username} onChange={this.handleChange}/>
             <input type="text" name='password' placeholder='Password' value={password} onChange={this.handleChange}/>
             <button className='login-btn' onClick={this.handleSubmit}>Submit</button>
-            <button className='demo-login-btn' onClick={this.handleDemo}>Demo User login</button>
+            <button className='demo-login-btn' onClick={e => this.handleDemo(e)}>Demo User login</button>
         </form>
       </div>
     );

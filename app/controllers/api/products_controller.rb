@@ -2,7 +2,7 @@ class Api::ProductsController < ApplicationController
 
     def index
         @products = Product.all
-        render 'api/products/index'
+        render :index
     end
 
     def show
