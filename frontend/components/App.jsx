@@ -21,21 +21,26 @@ import NagivationBar from '../components/navigation_bar_component';
 import productDetail from '../pages/product_detail_page';
 import CheckoutPage from '../pages/checkout_page';
 import Footer from '../components/footer_component';
+import SignIn from '../components/sign_in_component';
+import SignUp from '../components/sign_up_component';
+
 
 const App = () => (
   
+        // <AuthRoute exact path='/signin' component={SignIn} />
+        // <AuthRoute exact path='/signup' component={SignUp} />
   <div className="main-div">
     <NagivationBar />
-     <Switch>
-        <Route exact path='/shop' component={ShopPage} />
-        <Route exact path='/product/:id' component={productDetail}/>
-        <Route exact path='/checkout' component={CheckoutPage}/>
-        <Route  path='/' component={LandingPage}/> 
-        <Redirect to="/" />
+      <Switch>
+        <ProtectedRoute exact path='/shop' component={ShopPage} />
+        <ProtectedRoute exact path='/product/:id' component={productDetail}/>
+        <ProtectedRoute exact path='/checkout' component={CheckoutPage}/> 
+        <AuthRoute  path='/' component={LandingPage}/> 
+        <Redirect to='/' />
      </Switch>
-     <Footer />
+    <Footer />
   </div>
   
-);
-
+  );
+  
 export default App;

@@ -19,33 +19,40 @@ class NagivationBar extends React.Component{
 
 
   render(){
-
     
-    const { logout, currentUser, toggleCartHidden, hidden } = this.props;
+    const { logout, currentUser, hidden, toggleCartHidden} = this.props;
+  
     
-      let content;
+    let content;
+    
      
           content = <div className="header">
                         <Link to='/shop'><img className='logo' src={window.img1}/></Link>
-                        {currentUser
-                         ? <div className='right-bar-content'>
-                            <button className='cart' onClick={toggleCartHidden}>
-                                <i className="fas fa-shopping-cart"></i>      
-                            </button>
-                            <button onClick={this.handleLogout}>Log Out</button>
-                           </div>
-                          : null
-                        }
-                        
-                        {hidden 
-                            ? null
-                            :
-                            <div className='DropDown-Background'onClick={toggleCartHidden}>
-                                <div onClick={ e => e.stopPropagation()}>
-                                    <CartDropdown />
+                            {
+                              currentUser
+                              ?
+                                <div className='right-bar-content'>
+                                <button className='cart' onClick={toggleCartHidden}>
+                                    <i className="fas fa-shopping-cart"></i>      
+                                </button>
+                                <button onClick={this.handleLogout}>Log Out</button>
                                 </div>
-                            </div>
-                        }
+                              :
+                              null
+                                
+                              }
+                                                     
+                      
+                      {hidden 
+                          ? null
+                          :
+                          <div className='DropDown-Background'onClick={toggleCartHidden}>
+                              <div onClick={ e => e.stopPropagation()}>
+                                  <CartDropdown />
+                              </div>
+                          </div>
+                      }
+                        
                     </div>
       
      
@@ -58,12 +65,16 @@ class NagivationBar extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-      return({currentUser: state.session.id,
-            hidden: state.cart.hidden,
-            cartItems: state.cart.cartItems,
-            history: ownProps.history
-        })
-}
+  
+      return(
+        {currentUser: state.session.id,
+          hidden: state.entities.cart.hidden
+        }
+        )
+      }
+      // hidden: state.cart.hidden,
+      // cartItems: state.cart.cartItems,
+      // history: ownProps.history
 
   const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),

@@ -7,15 +7,16 @@ import ProductItem from '../components/product_item_component';
 
 
 class ShopPage extends React.Component {
-    constructor(){
-        super()
-    }
+   constructor(props){
+       super(props);
 
+   }
     componentDidMount(){
-        this.props.fetchProducts()
+        this.props.fetchAllProducts()
     }
-
+    
     render(){
+        
         
         let products = this.props.products.map((product, id)=>{
             return(
@@ -26,12 +27,14 @@ class ShopPage extends React.Component {
             )
         })
 
-
+        
+       
+        
         return(
             <div className='shop-page'>
                 <div>SHOP PAGE</div>
                 <div className='shop-page-shoes'>
-                    {products}
+                {products}
                     <div className='shop-empty-div'></div>
                     <div className='shop-empty-div'></div>
                     <div className='shop-empty-div'></div>
@@ -42,15 +45,17 @@ class ShopPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    
+    
     return(
         {
-            products: Object.values(state.products)
+            products: Object.values(state.entities.products)
         }
     )
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchAllProducts: () => dispatch(fetchProducts())
 })
 
 

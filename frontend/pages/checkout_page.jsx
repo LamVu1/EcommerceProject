@@ -9,14 +9,14 @@ class CheckoutPage extends React.Component{
     }
 
     render(){
-        let items =  this.props.cartItems.map((item,idx)=>{
-            return(
-                <CheckoutItem 
-                    key = {idx}
-                    item = {item}
-                />
-            )
-        })
+        // let items =  this.props.cartItems.map((item,idx)=>{
+        //     return(
+        //         <CheckoutItem 
+        //             key = {idx}
+        //             item = {item}
+        //         />
+        //     )
+        // })
         
         
         return(
@@ -39,20 +39,20 @@ class CheckoutPage extends React.Component{
                             <span>Remove</span>
                         </div>
                     </div>
-                  {items}
                 </div>
         )
-
+        
     }
+    // {items}
     
 }
 
 const mapStateToProps = (state)=>{
-    let cartItems = Object.values(state.cart.cartItems);
+    // let cartItems = Object.values(state.cart.cartItems);
+    // cartItems: cartItems,
     let currentUser = state.users
     return(
         {
-            cartItems: cartItems,
             currentUser: currentUser
         }
     )

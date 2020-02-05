@@ -28,12 +28,13 @@ class CartDropDown extends React.Component{
             )
         })
 
+        
         return(
             <div className='cart-dropdown'>
-            <ul>
-                {itemList}
-            </ul>
-                <button onClick={() => {
+                <ul  className='cart-items'>
+                    {itemList}
+                </ul>
+                <button className='cart-dropdown-button'onClick={() => {
                     this.props.history.push('/checkout');
                     this.props.toggleCartHidden()}}>
                         Checkout
@@ -47,7 +48,7 @@ class CartDropDown extends React.Component{
 
 
 const mapStateToProps = (state, ownProps)=>({
-    cartItems: Object.values(state.cart.cartItems),
+    cartItems: Object.values(state.entities.cart.cartItems),
     history: ownProps.history
   });
 

@@ -8,9 +8,11 @@ class productDetail extends React.Component{
     constructor(){
         super();
         this.state = {
-            product: ''
+            product: '',
+            size: 7
         }
-        this.addItemToCart = this.addItemToCart.bind(this)
+        this.addItemToCart = this.addItemToCart.bind(this);
+        this.handleSize = this.handleSize.bind(this);
     }
 
     componentDidMount(){
@@ -22,7 +24,16 @@ class productDetail extends React.Component{
     }
 
     addItemToCart(){
-        this.props.addItem(this.state.product)
+
+        let prod = {...this.state.product};
+        prod.size = this.state.size;
+        this.props.addItem(prod)
+    }
+
+    handleSize(e){
+        // let product = {...this.state.product}
+        // product.size = e.target.innerHTML 
+        this.setState({size: e.target.innerHTML })
     }
 
 
@@ -39,7 +50,7 @@ class productDetail extends React.Component{
          let sizes = <div className='size-menu'>
                          {[7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13].map((num) =>{
                             return(
-                                <div key={num}className='size-item'>{num}</div>
+                                <div key={num} className='size-item' onClick={this.handleSize}>{num}</div>
                                 )
                             })
                         }
@@ -77,7 +88,7 @@ const mapStateToProps = (state,ownProps)=>{
     return(
         {
             productId: ownProps.match.params.id,
-            product: Object.values(state.products)[0]
+            product: Object.values(state.entities.products)[0]
         }
     )
 }
