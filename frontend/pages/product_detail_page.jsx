@@ -31,8 +31,12 @@ class productDetail extends React.Component{
     }
 
     handleSize(e){
-        // let product = {...this.state.product}
-        // product.size = e.target.innerHTML 
+     
+        let prev = document.getElementsByClassName('selected');
+        if(prev.length){          
+            prev[0].classList.remove('selected');
+        }
+        e.target.classList.add('selected')
         this.setState({size: e.target.innerHTML })
     }
 
