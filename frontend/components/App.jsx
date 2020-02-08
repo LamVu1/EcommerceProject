@@ -27,8 +27,6 @@ import SignUp from '../components/sign_up_component';
 
 const App = () => (
   
-        // <AuthRoute exact path='/signin' component={SignIn} />
-        // <AuthRoute exact path='/signup' component={SignUp} />
   <div className="main-div">
     <NagivationBar />
       <Switch>
