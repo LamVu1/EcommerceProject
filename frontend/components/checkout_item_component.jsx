@@ -45,7 +45,7 @@ class CheckoutItem extends React.Component{
                     {item.quantity}
                     <div className='checkout-item-btn' onClick={this.handleRemoveItem}><i className="fas fa-angle-down"></i></div>
                 </div>
-                <div className='check-out-block'>{item.price}</div>
+                <div className='check-out-block'>${item.quantity*item.price}</div>
                 <div className='check-out-block'>
                     <div className='checkout-item-remove-btn' onClick={this.handleClearItem}><i className="fas fa-times"></i></div>
                 </div>
