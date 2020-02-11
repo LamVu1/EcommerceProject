@@ -33,13 +33,14 @@
 .checkout-item-btn i{
     cursor: pointer;
     width: 50px;
-    background: black;
+    background: rgb(48, 162, 228);
+    
     color: white;
     border-radius: 15pt;
 }
 
 .checkout-item-btn i:hover{
-    background-color:rgb(102, 99, 99) ;
+    background-color:rgb(79, 187, 250); ;
 }
 
 .checkout-item-remove-btn i{
