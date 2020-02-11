@@ -9,14 +9,15 @@ class CheckoutPage extends React.Component{
     }
 
     render(){
-        // let items =  this.props.cartItems.map((item,idx)=>{
-        //     return(
-        //         <CheckoutItem 
-        //             key = {idx}
-        //             item = {item}
-        //         />
-        //     )
-        // })
+
+        let items =  this.props.cartItems.map((item,idx)=>{
+            return(
+                <CheckoutItem 
+                    key = {idx}
+                    item = {item}
+                />
+            )
+        })
         
         
         return(
@@ -24,36 +25,37 @@ class CheckoutPage extends React.Component{
                     <h1>Check Out</h1>
                     <div className='checkout-header'>
                         <div className='header-block'>
-                            <span>Product</span>
+                            Product
                         </div>
                         <div className='header-block'>
-                            <span>Description</span>
+                        Description
                         </div>
                         <div className='header-block'>
-                            <span>Quantity</span>
+                        Size
                         </div>
                         <div className='header-block'>
-                            <span>Price</span>
+                        Quantity
                         </div>
                         <div className='header-block'>
-                            <span>Remove</span>
+                        Price
+                        </div>
+                        <div className='header-block'>
+                        
                         </div>
                     </div>
+                    {items}
                 </div>
         )
         
     }
-    // {items}
     
 }
 
 const mapStateToProps = (state)=>{
-    // let cartItems = Object.values(state.cart.cartItems);
-    // cartItems: cartItems,
-    let currentUser = state.users
+    let cartItems = Object.values(state.entities.cart.cartItems);
     return(
         {
-            currentUser: currentUser
+            cartItems: cartItems
         }
     )
 }
