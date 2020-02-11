@@ -6,12 +6,21 @@
         text-align: center;
     }
 }
+
+
 .checkout-header{
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    color: white;
 }
-
+.header-block{
+    width: 100px;
+}
 .check-out-item{
     display: flex;
     flex-direction: row;

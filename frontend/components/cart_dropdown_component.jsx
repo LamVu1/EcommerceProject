@@ -20,9 +20,12 @@ class CartDropDown extends React.Component{
             return(
                 <div key={idx}>
                     <img key={`image${idx}`} className='item-page-image' src={item.photoUrls}/>
-                    <p key={`title${idx}`}>{item.title}</p>
-                    <p key={`price${idx}`}>${item.price}</p>
-                    <p key={`quantity${idx}`}>qty: {item.quantity}</p>
+                    <div>
+                        <p key={`title${idx}`}>{item.title}</p>
+                        <p key={`size${idx}`}>size: {item.size}</p>
+                        <p key={`price${idx}`}>${item.price}</p>
+                        <p key={`quantity${idx}`}>quantity: {item.quantity}</p>
+                    </div>
     
                 </div>
             )
