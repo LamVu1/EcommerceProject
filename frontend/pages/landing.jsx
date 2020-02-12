@@ -7,6 +7,7 @@ class LandingPage extends React.Component{
         super();
         this.flag = true;
         this.handleButton = this.handleButton.bind(this);
+        this.randomBackground = this.randomBackground.bind(this);
     }
 
     handleButton(){
@@ -28,6 +29,17 @@ class LandingPage extends React.Component{
         }
     }
 
+    randomBackground(){
+        let idx = Math.floor(Math.random()*5)
+        let images = ['https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner1.jpg',
+        'https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner2.jpg',
+        'https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner3.jpg',
+        'https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner4.jpg',
+        'https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner5.jpg'
+    ]
+    return(images[idx])
+    }
+
     render(){
 
         let btn;
@@ -37,8 +49,9 @@ class LandingPage extends React.Component{
         </div>
         
 
+        let background = this.randomBackground()
         return(
-            <div className='landing-page'>
+            <div className='landing-page' style={{backgroundImage: `url(${background})`}}>
                 <div className='form-div'>
                     <SignIn />
                     <SignUp />

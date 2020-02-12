@@ -18,13 +18,13 @@ class CartDropDown extends React.Component{
 
         let itemList = cartItems.map((item,idx)=>{
             return(
-                <div key={idx}>
+                <div className='cart-item' key={idx}>
                     <img key={`image${idx}`} className='item-page-image' src={item.photoUrls}/>
-                    <div>
+                    <div  className='cart-item-detail'>
                         <p key={`title${idx}`}>{item.title}</p>
                         <p key={`size${idx}`}>size: {item.size}</p>
-                        <p key={`price${idx}`}>${item.price}</p>
                         <p key={`quantity${idx}`}>quantity: {item.quantity}</p>
+                        <p key={`price${idx}`}>${item.price}</p>
                     </div>
     
                 </div>
