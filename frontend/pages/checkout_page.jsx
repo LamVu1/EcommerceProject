@@ -61,7 +61,7 @@ class CheckoutPage extends React.Component{
                         <div className='header-block'></div>
                         <div className='total-price'>
                             <p>Total: </p>
-                            <p>{totalAmount}</p>
+                            <p>${totalAmount}</p>
                         </div>
                         <div className='header-block'></div>
                     </div>

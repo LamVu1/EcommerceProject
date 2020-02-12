@@ -7,7 +7,7 @@
 
 .cart-dropdown {
     position: fixed;
-    width: 300px;
+    width: 350px;
     height: 340px;
     display: flex;
     flex-direction: column;
@@ -24,8 +24,19 @@
       flex-direction: column;
       overflow-y: scroll;
       overflow-x: auto;
+      margin: 0;
+    padding: 0;
+    }
+
+    .cart-item-detail p{
+      margin: 0;
     }
     
+    .cart-item{
+      display: flex;
+    }
+
+
     .cart-dropdown-button {
       margin-top: auto;
       width: 100%;

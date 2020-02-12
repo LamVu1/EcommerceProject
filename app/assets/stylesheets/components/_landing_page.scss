@@ -3,16 +3,17 @@
     justify-content: flex-end;
     height: 100vh;
     width: 100vw;
-    background-image: url('https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/banner.jpg');
     background-position: center;
     background-size: cover;
+    align-items: center;
 }
 .form-div{
     height: 60vh;
     width: 30vw;
     background-color: white;
     border-radius: 2pt;
-    margin: auto;
+    position: absolute;
+    left: 74px;
 }
 
 .form-btn{
@@ -85,7 +86,7 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font: normal 16px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #4cb8ea;
+    background: #2188b8;
     border-radius: 4px;
     border: none;
     padding: 10px 12px;
@@ -95,8 +96,16 @@
     text-align: center;
 
     &:hover{
-        background-color: #408db1;
+        background-color: #36b3ec;
     }
+    }
+
+    .demo-login-btn{
+        background: rgb(22, 180, 22);
+    }
+
+    .demo-login-btn:hover{
+        background: rgb(28, 235, 28);
     }
 }
 
