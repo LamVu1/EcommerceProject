@@ -16,10 +16,11 @@ class Api::CartItemsController < ApplicationController
 
     def show
         @cart_item = current_user.cart_items.select {|cart_item| cart_item.product_id == params[:product_id].to_i && cart_item.size==params[:size]}.first
+        if @cart_item
+          render :show
         else
-          @cart_item = nil
+          render json: ['something went wrong'], status: 422          
         end  
-        render :show
     end
     
     def index
