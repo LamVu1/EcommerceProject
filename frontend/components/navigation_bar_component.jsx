@@ -59,6 +59,7 @@ class NagivationBar extends React.Component{
     return(
       <div>
           {content}
+          <div className='header-grey-bar'></div>
       </div>
   )
   }

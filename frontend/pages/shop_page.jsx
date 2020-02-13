@@ -32,7 +32,6 @@ class ShopPage extends React.Component {
         
         return(
             <div className='shop-page'>
-                <div>SHOP PAGE</div>
                 <div className='shop-page-shoes'>
                 {products}
                     <div className='shop-empty-div'></div>

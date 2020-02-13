@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { toggleCartHidden } from '../reducers/cart/cart_actions';
+import {clearItemFromCart} from '../reducers/cart/cart_actions';
 
 
 
@@ -14,7 +15,7 @@ class CartDropDown extends React.Component{
     
     render(){
         
-        let {cartItems} = this.props
+        let {cartItems, clearItemFromCart} = this.props
 
         let itemList = cartItems.map((item,idx)=>{
             return(
@@ -25,6 +26,7 @@ class CartDropDown extends React.Component{
                         <p key={`size${idx}`}>size: {item.size}</p>
                         <p key={`quantity${idx}`}>quantity: {item.quantity}</p>
                         <p key={`price${idx}`}>${item.price}</p>
+                        <div  onClick={()=>clearItemFromCart(item)}><i className="fas fa-times"></i></div>
                     </div>
     
                 </div>
@@ -56,7 +58,8 @@ const mapStateToProps = (state, ownProps)=>({
   });
 
 const mapDispatchToProps = dispatch => ({
-    toggleCartHidden: () => dispatch(toggleCartHidden())
+    toggleCartHidden: () => dispatch(toggleCartHidden()),
+    clearItemFromCart: (item) => dispatch(clearItemFromCart(item))
 })
 
 
