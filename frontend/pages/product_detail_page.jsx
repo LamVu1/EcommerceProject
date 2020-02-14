@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProduct } from '../reducers/products/product_actions';
+import { fetchProduct, fetchProducts } from '../reducers/products/product_actions';
 import { addItem } from '../reducers/cart/cart_actions';
 import { Link } from 'react-router-dom';
-
+import ProductSlider from '../components/product_slider_component';
 
 class productDetail extends React.Component{
     constructor(){
@@ -21,7 +21,7 @@ class productDetail extends React.Component{
         this.props.fetchProduct(this.props.productId)
         .then(product =>{
             this.setState({product: Object.values(product.product)[0]})
-        })
+        }).then(()=>{this.props.fetchProducts()})
 
     }
 
@@ -50,7 +50,7 @@ class productDetail extends React.Component{
     render(){
 
         
-
+        let {products} = this.props;     
 
         let images;
         if (this.state.product.length !== 0) {
@@ -98,8 +98,10 @@ class productDetail extends React.Component{
                         <div className='add-item-btn' onClick={this.addItemToCart}>Add To Cart</div>
                     </div>
                 </div>
-                <div className='item-page-top'>
-                
+                <div className='item-page-bottom'>
+                    <ProductSlider 
+                        products = {products}
+                    />
                 </div>
             </div>
         )
@@ -112,14 +114,16 @@ const mapStateToProps = (state,ownProps)=>{
     return(
         {
             productId: ownProps.match.params.id,
-            product: Object.values(state.entities.products)[0],
-            history: ownProps.history
+            history: ownProps.history,
+            products: state.entities.products,
+            
         }
     )
 }
 
 const mapDispatchToProps = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),
+    fetchProducts: () => dispatch(fetchProducts()),
     addItem: (item) => dispatch(addItem(item))
 })
 
