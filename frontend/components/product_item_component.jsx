@@ -7,43 +7,23 @@ import ProductImages from './product_image_component';
 class ProductItem extends React.Component{
     constructor(){
         super()
-        this.state = {
-            hover: false
-        }
-        this.handleEnter = this.handleEnter.bind(this)
-        this.handleLeave = this.handleLeave.bind(this)
-
+      
     }
 
-    handleEnter(e){
-        e.preventDefault()
-        this.setState({hover: true} )
-        console.log(this.state)
-    }
-
-    handleLeave(e){
-        e.preventDefault()
-        this.setState({hover: false} )
-        console.log(this.state)
-    }
 
       
     render(){
         let {item} = this.props
   
-        // {
-        //     this.state.hover
-        //     ?
-        //     <ProductImages 
-        //     images = {item.photoUrls}
-        //     id = {item.id}
-        // />
-        // :null
-        // }
+
+
         return(
             <div className='item'>
-                <img className='item-image' src={item.photoUrls[0]} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}/>
                 
+                    <ProductImages 
+                    images = {item.photoUrls}
+                    id = {item.id}
+                    />
                 <div className='item-detail'>
                     <Link to={`/product/${item.id}`}>
                         <div className='item-title'>{item.title}</div> 
@@ -76,5 +56,17 @@ class ProductItem extends React.Component{
 //     )
 
 // }
+
+// const mapStateToProps = (state) => {
+//     return(
+//         {
+//             hidden: state.ui.hidden
+//         }
+//     )
+// }
+
+// const mapDispatchToProps = (dispatch) =>({
+//     toggleHover: ()=>dispatch(toggleHover())
+// })
 
 export default connect(null,null)(ProductItem);

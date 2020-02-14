@@ -1,6 +1,7 @@
 .landing-page{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
     background-position: center;
@@ -10,10 +11,9 @@
 .form-div{
     height: 60vh;
     width: 30vw;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.637);
     border-radius: 2pt;
-    position: absolute;
-    left: 74px;
+ 
 }
 
 .form-btn{

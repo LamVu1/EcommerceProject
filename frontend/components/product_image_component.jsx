@@ -7,36 +7,66 @@ class ProductImages extends React.Component{
     constructor(){
         super();
         this.state = {
-            main: 0
+            main: 0,
+            hidden: true,
         }
-    this.handleHover = this.handleHover.bind(this);
+    this.handleHoverEnter = this.handleHoverEnter.bind(this);
+    this.handleHoverLeave = this.handleHoverLeave.bind(this);
+
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
     }
 
-    handleHover(id){
+    handleHoverEnter(e){
+        let id = e.currentTarget.getAttribute('value')
+        e.currentTarget.classList.add('selected')
         this.setState(state => ({main: id}) )
+    }
+
+    handleHoverLeave(e){
+        let id = e.currentTarget.getAttribute('value')
+        e.currentTarget.classList.remove('selected')
+    }
+
+    handleEnter(){
+        this.setState({hidden: false, main: 0})
+    }
+
+    handleLeave(){
+        this.setState({hidden: true})
     }
 
     render(){
         let {id, images} = this.props
         let small = images.map((image,id)=>{
             return(
-                <img key={id} className='item-image-small' onMouseOver={()=> this.handleHover(id)} src={image}/>
+                <img key={id} className='item-image-small' value={id} onMouseEnter={this.handleHoverEnter} onMouseLeave={this.handleHoverLeave} src={image}/>
             )
         })
-    
 
         let main = images[this.state.main]
-
+     
         return(
             <div className='item-images'>
-                <div className='item-image-main-container'>
-                    <Link to={`/product/${id}`}>
-                        <img className='item-image-main' src={main}/>
-                    </Link>
-                </div>
-                <div className='item-image-small-container'>
-                    {small}
-                </div>
+                {
+                    this.state.hidden
+                    
+                    ?
+              
+                    <img className='item-image-main' src={main} onMouseEnter={this.handleEnter} />
+                   
+                    :
+                    <div className='item-image-hover' onMouseLeave={this.handleLeave} >
+                       <Link to={`/product/${id}`}>
+                        <img className='item-hover-image-main' src={main}/>
+                       
+                       </Link>
+                        <div className='item-image-small-container'>
+                            {small}
+                       </div>
+                    </div>
+                }
+             
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProduct } from '../reducers/products/product_actions';
 import { addItem } from '../reducers/cart/cart_actions';
+import { Link } from 'react-router-dom';
 
 
 class productDetail extends React.Component{
@@ -13,6 +14,7 @@ class productDetail extends React.Component{
         }
         this.addItemToCart = this.addItemToCart.bind(this);
         this.handleSize = this.handleSize.bind(this);
+        this.handleBack = this.handleBack.bind(this);
     }
 
     componentDidMount(){
@@ -40,8 +42,16 @@ class productDetail extends React.Component{
         this.setState({size: e.target.innerHTML })
     }
 
+    handleBack(){
+        this.props.history.goBack();
+    }
+
 
     render(){
+
+        
+
+
         let images;
         if (this.state.product.length !== 0) {
            images = this.state.product.photoUrls.map((image, idx)=>{
@@ -66,20 +76,30 @@ class productDetail extends React.Component{
         
         return  (
             <div className='item-page'>
-                <div className='item-page-image-section'>
-                    {images}
-                    <div className='detail-page-empty-div'></div>
-                </div>               
-                <div className='item-page-detail-section'>
-                    <div className='item-page-detail-top'>
-                        <p className='item-page-title'>{this.state.product.title}</p>
-                        <p className='item-page-price'>${this.state.product.price}</p>
+                <div className='item-page-top'>                
+                    <div className='item-page-image-section'>
+                    <div onClick={this.handleBack}>
+                        <div className='Back-link'>
+                            Go Back
+                        </div>
                     </div>
-                    <p className='item-page-description'>{this.state.product.description}
-                    </p>  
-                    <p>Select Size</p>
-                    {sizes}
-                    <div className='add-item-btn' onClick={this.addItemToCart}>Add To Cart</div>
+                        {images}
+                        <div className='detail-page-empty-div'></div>
+                    </div>               
+                    <div className='item-page-detail-section'>
+                        <div className='item-page-detail-top'>
+                            <p className='item-page-title'>{this.state.product.title}</p>
+                            <p className='item-page-price'>${this.state.product.price}</p>
+                        </div>
+                        <p className='item-page-description'>{this.state.product.description}
+                        </p>  
+                        <p>Select Size</p>
+                        {sizes}
+                        <div className='add-item-btn' onClick={this.addItemToCart}>Add To Cart</div>
+                    </div>
+                </div>
+                <div className='item-page-top'>
+                
                 </div>
             </div>
         )
@@ -92,7 +112,8 @@ const mapStateToProps = (state,ownProps)=>{
     return(
         {
             productId: ownProps.match.params.id,
-            product: Object.values(state.entities.products)[0]
+            product: Object.values(state.entities.products)[0],
+            history: ownProps.history
         }
     )
 }

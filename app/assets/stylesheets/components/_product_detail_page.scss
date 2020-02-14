@@ -1,15 +1,30 @@
 .item-page{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 20px 75px;
     height: 100%;
     margin-bottom: 150px;
 }
 
+.item-page-top{
+    display: flex;
+    flex-direction: row;
+}
 
 .item-page-image-section{
     width: 66vw;
     margin-right: 50px;   
+}
+
+.Back-link{
+    font-weight: 200;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+.Back-link:hover{
+   color: rgb(100, 98, 98);
 }
 
 .item-page-image{
