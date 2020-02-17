@@ -20,20 +20,29 @@ class NagivationBar extends React.Component{
 
   render(){
     
-    const { logout, currentUser, hidden, toggleCartHidden} = this.props;
-  
+    const { logout, currentUser, hidden, toggleCartHidden, cartItems} = this.props;
+    let itemCount = 0;
+    cartItems.forEach((item)=>{
+        itemCount+=item.quantity
+    
+      })
     
     let content;
     
-     
-          content = <div className="header">
+    
+    
+    content = <div className="header">
                         <Link to='/shop'><img className='logo' src={window.img1}/></Link>
                             {
                               currentUser
                               ?
-                                <div className='right-bar-content'>
+                              <div className='right-bar-content'>
                                 <button className='cart' onClick={toggleCartHidden}>
-                                    <i className="fas fa-shopping-cart"></i>      
+                                <i className="fas fa-shopping-cart"></i>  
+
+                                <p className='cart-item-count'>
+                                      {itemCount}           
+                                </p>
                                 </button>
                                 <button onClick={this.handleLogout}>Log Out</button>
                                 </div>
@@ -69,7 +78,8 @@ const mapStateToProps = (state, ownProps) => {
   
       return(
         {currentUser: state.session.id,
-          hidden: state.entities.cart.hidden
+          hidden: state.entities.cart.hidden,
+          cartItems: Object.values(state.entities.cart.cartItems)
         }
         )
       }

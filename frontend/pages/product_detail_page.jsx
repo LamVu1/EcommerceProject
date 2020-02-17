@@ -4,6 +4,8 @@ import { fetchProduct, fetchProducts } from '../reducers/products/product_action
 import { addItem } from '../reducers/cart/cart_actions';
 import { Link } from 'react-router-dom';
 import ProductSlider from '../components/product_slider_component';
+import { withRouter } from 'react-router-dom';
+
 
 class productDetail extends React.Component{
     constructor(){
@@ -15,13 +17,14 @@ class productDetail extends React.Component{
         this.addItemToCart = this.addItemToCart.bind(this);
         this.handleSize = this.handleSize.bind(this);
         this.handleBack = this.handleBack.bind(this);
+        this.handleTop = this.handleTop.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchProduct(this.props.productId)
         .then(product =>{
             this.setState({product: Object.values(product.product)[0]})
-        }).then(()=>{this.props.fetchProducts()})
+        }).then(()=>{this.props.fetchProducts()}).then(()=>{this.handleTop()})
 
     }
 
@@ -46,11 +49,16 @@ class productDetail extends React.Component{
         this.props.history.goBack();
     }
 
+    handleTop(){
+        document.documentElement.scrollTop = 0;
+    }
+  
 
     render(){
 
+        let {products} = this.props;   
         
-        let {products} = this.props;     
+       
 
         let images;
         if (this.state.product.length !== 0) {
@@ -75,7 +83,8 @@ class productDetail extends React.Component{
         
         
         return  (
-            <div className='item-page'>
+            <div className='item-page' >
+               
                 <div className='item-page-top'>                
                     <div className='item-page-image-section'>
                     <div onClick={this.handleBack}>
@@ -99,9 +108,27 @@ class productDetail extends React.Component{
                     </div>
                 </div>
                 <div className='item-page-bottom'>
+                    <h2>Explore the rest of our shoes</h2>
+                    <img className='detail-image' src='https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/detail1.jpg'></img>
+                    <h2>Designed to Help Reduce Injury</h2>
+                    <p className='detail-p'>It’s an audacious shoe with an even more audacious goal. We designed the Nike React Infinity Run to help reduce the risk of running-related injuries. In one of our largest independent studies, the Nike React Infinity Run helped keep study participants running while training for a half marathon. Read more to learn more about our newest shoe.</p>
+                    <img className='detail-image' src='https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/detail2.jpg'></img>
+                    <h2>Runner Approved</h2>
+                    <p className='detail-p'>To see if the shoe could help reduce injury compared to our motion control shoe, we commissioned a study through the British Columbia Sports Medicine Research Foundation where runners followed a 12-week variable training program ending in a half marathon. Based on the results, we think we’re on the right track: In testing*, the Nike React Infinity Run showed a 52 percent lower injury rate compared to the Nike Structure 22, our leading motion control shoe.</p>
+
+                    <h2>“We’re on the right track”</h2>
+                    <img className='detail-image' src='https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/detail3.jpg'></img>
+                    <h2>Renew Your Run</h2>
+                    <p className='detail-p-last'>In addition to soft underfoot cushioning, a durable rubber outsole provides traction where you need it most and a breathable mesh upper delivers a secure and lightweight fit. Altogether, the Nike Renew Run keeps your legs feeling refreshed and energized with each stride.</p>
+                    <p className='rec-p'>YOU MIGHT ALSO LIKE</p>
                     <ProductSlider 
                         products = {products}
                     />
+                </div>
+                <div className='scroll-btn' onClick={this.handleTop}><i className="far fa-arrow-alt-circle-up"></i>
+                <p>
+                Back to Top
+                </p>
                 </div>
             </div>
         )
@@ -127,4 +154,4 @@ const mapDispatchToProps = dispatch => ({
     addItem: (item) => dispatch(addItem(item))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps) (productDetail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps) (productDetail));
