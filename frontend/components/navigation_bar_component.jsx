@@ -39,10 +39,16 @@ class NagivationBar extends React.Component{
                               <div className='right-bar-content'>
                                 <button className='cart' onClick={toggleCartHidden}>
                                 <i className="fas fa-shopping-cart"></i>  
-
-                                <p className='cart-item-count'>
-                                      {itemCount}           
-                                </p>
+                                {
+                                  itemCount!==0
+                                  ?<p className='cart-item-count'>
+                                 
+                                  {itemCount}  
+                                
+                              </p>
+                              :null
+                                }
+                              
                                 </button>
                                 <button onClick={this.handleLogout}>Log Out</button>
                                 </div>

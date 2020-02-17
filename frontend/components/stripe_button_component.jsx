@@ -14,10 +14,9 @@ const StripeCheckoutButton = ({ price }) => {
     
     return(
         <StripeCheckout
-        label = 'Place Order'
-        name = 'Shoe Shop'
-        email = 'demo123@gmail.com'
-            image = 'https://sendeyo.com/up/d/f3eb2117da'
+            label = 'Place Order'
+            name = 'Shoe Shop'
+            email = 'demo123@gmail.com'
             description = {`Your total is $${price}`}
             amount = {priceForStripe}
             panelLabel = 'Place Order'

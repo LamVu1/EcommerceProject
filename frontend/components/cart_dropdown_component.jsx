@@ -22,11 +22,15 @@ class CartDropDown extends React.Component{
                 <div className='cart-item' key={idx}>
                     <img key={`image${idx}`} className='item-page-image' src={item.photoUrls}/>
                     <div  className='cart-item-detail'>
+                    <div  className='cart-dropdow-clear' onClick={()=>clearItemFromCart(item)}><i className="fas fa-times"></i></div>
                         <p key={`title${idx}`}>{item.title}</p>
+                        <div className='cart-item-sizeqty'>
                         <p key={`size${idx}`}>size: {item.size}</p>
-                        <p key={`quantity${idx}`}>quantity: {item.quantity}</p>
+                        <p key={`quantity${idx}`}>qty: {item.quantity}</p>
+
+                        </div>
                         <p key={`price${idx}`}>${item.price}</p>
-                        <div  onClick={()=>clearItemFromCart(item)}><i className="fas fa-times"></i></div>
+                        
                     </div>
     
                 </div>
