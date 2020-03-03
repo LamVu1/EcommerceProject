@@ -9,21 +9,61 @@ import SlideShow from '../components/slideshow';
 class ShopPage extends React.Component {
    constructor(props){
        super(props);
+       this.state ={
+           products: [],
+           search:''
+       }
        this.handleTop = this.handleTop.bind(this);
+       this.handleFilter = this.handleFilter.bind(this);
+    //    this.handleHover = this.handleHover.bind(this);
+       this.handleHoverEnter = this.handleHoverEnter.bind(this);
+       this.handleHoverLeave = this.handleHoverLeave.bind(this);
+       this.handleSearch = this.handleSearch.bind(this);
 
    }
     componentDidMount(){
-        this.props.fetchAllProducts()
+        this.props.fetchAllProducts().then(products => this.setState({products: Object.values(products.products)}))
     }
     
     handleTop(){
         document.documentElement.scrollTop = 0;
     }
+
+    handleSearch(e){
+        e.preventDefault();
+        this.setState({search: e.target.value}) 
+    }
+
+
+    handleHoverEnter(){
+        let options = document.getElementsByClassName('filter-options')     
+        options[0].style.display = "flex";          
+    }
+
+    handleHoverLeave(){
+        let options = document.getElementsByClassName('filter-options')
+        options[0].style.display = "none";
+    }
+
+    handleFilter(op){
+         
+        if(op==='low'){
+            this.setState({products: this.state.products.sort((a,b)=> (a.price<b.price)?-1:1)}) 
+        }
+        else if(op==='high'){
+            this.setState({products: this.state.products.sort((a,b)=> (a.price>b.price)?-1:1)}) 
+        }else{
+            return
+        }   
+    }
   
     render(){
         
+
+
+        let filteredSearch = this.state.products.filter((ele)=> ele.title.toLowerCase().includes(this.state.search.toLowerCase()))
         
-        let products = this.props.products.map((product, id)=>{
+        let products = filteredSearch.map((product, id)=>{
             return(
                 <ProductItem 
                 key = {id}
@@ -47,6 +87,18 @@ class ShopPage extends React.Component {
         
         return(
             <div className='shop-page'>
+                <div>
+                    <form>
+                        <input onChange={this.handleSearch} type="text" name="" value={this.state.search} placeholder='Search' />
+                    </form>
+                </div>
+                <div className='filter-dropdown' onMouseLeave={this.handleHoverLeave}>
+                    <div onMouseEnter={this.handleHoverEnter} className='filter-button'>Sort by:</div>
+                    <div className='filter-options'>
+                        <button className='filter-option' onClick={()=>this.handleFilter('low')}>Price: Low to High</button>
+                        <button className='filter-option' onClick={()=>this.handleFilter('high')}>Price: High to Low</button>
+                    </div>
+                </div>
                 <div className='shop-page-shoes'>
                 {products}
                     <div className='shop-empty-div'></div>

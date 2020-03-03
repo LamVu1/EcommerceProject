@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {deleteCartItem, updateCartItem} from '../reducers/cart/cart_actions';
-import { addItem, removeItem } from '../reducers/cart/cart_actions';
 
 
 class CheckoutItem extends React.Component{
