@@ -1,4 +1,4 @@
-import {TOGGLE_DROP_DOWN, ADD_ITEM, REMOVE_ITEM, CLEAR_ITEM_FROM_CART} from './cart_actions';
+import {TOGGLE_DROP_DOWN, ADD_ITEM, REMOVE_ITEM, CLEAR_ITEM_FROM_CART, RECEIVE_ALL_CART_ITEMS, RECEIVE_CART_ITEM, RECEIVE_CART_ITEM_DROP} from './cart_actions';
 
 import { addItemToCart, removeItemFromCart } from './cart_utils';
 
@@ -17,33 +17,25 @@ const cartReducer = ( oldstate = INITIAL_STATE, action) =>{
                 ...oldstate,
                 hidden: !oldstate.hidden
             }
-        case ADD_ITEM:
+        case RECEIVE_ALL_CART_ITEMS:
             return{
                 ...oldstate,
-                cartItems: addItemToCart(oldstate.cartItems, action.payload
-                )
-              
+                cartItems: action.items
             }
-        case REMOVE_ITEM:
-            return {
-                ...oldstate,
-                cartItems: removeItemFromCart(oldstate.cartItems, action.payload)
-            };
+        case RECEIVE_CART_ITEM:
+            
+            
+            nextState = Object.assign({}, oldstate);
+            nextState.cartItems[action.item.id] = action.item
+            return nextState;
+       
         case CLEAR_ITEM_FROM_CART:
-            
-            // return {
-            //     ...oldstate,
-            //     cartItems: oldstate.cartItems.filter(
-            //     cartItem => {cartItem.size !== action.payload.size
-            //     }
-            //     )
-            // };
-            
-            return {
-                ...oldstate,
-                cartItems: oldstate.cartItems.filter(item => (item.id !==action.payload.id) ||  (item.id ===action.payload.id && item.size !==action.payload.size))
-
-            };
+                
+                nextState = Object.assign({}, oldstate);
+                delete nextState.cartItems[action.item.id];
+                return nextState;
+                
+          
         default:
             return oldstate;
     }

@@ -2,10 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CheckoutItem from '../components/checkout_item_component';
 import StripeCheckoutButton from '../components/stripe_button_component';
+import {fetchCartItems} from '../reducers/cart/cart_actions'
+
 
 class CheckoutPage extends React.Component{
     constructor(){
         super()
+    }
+
+    componentDidMount(){
+        this.props.fetchCartItems()
     }
 
     totalPrice(){
@@ -79,6 +85,7 @@ class CheckoutPage extends React.Component{
 }
 
 const mapStateToProps = (state)=>{
+    
     let cartItems = Object.values(state.entities.cart.cartItems);
     return(
         {
@@ -87,10 +94,8 @@ const mapStateToProps = (state)=>{
     )
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     fetchProduct: (id) => dispatch(fetchProduct(id)),
-//     addItem: (item) => dispatch(addItem(item))
-// })
-export default connect(mapStateToProps)(CheckoutPage);
+const mapDispatchToProps = dispatch => ({
+    fetchCartItems: ()=>dispatch(fetchCartItems())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
 
-// export default Checkout;

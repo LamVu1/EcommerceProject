@@ -3,26 +3,26 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { toggleCartHidden } from '../reducers/cart/cart_actions';
-import {clearItemFromCart} from '../reducers/cart/cart_actions';
+import {deleteCartItem} from '../reducers/cart/cart_actions';
 
 
 
 class CartDropDown extends React.Component{
     constructor(){
         super();
-        
     }
-    
+
+
     render(){
         
-        let {cartItems, clearItemFromCart} = this.props
+        let {cartItems, deleteCartItem} = this.props
 
         let itemList = cartItems.map((item,idx)=>{
             return(
                 <div className='cart-item' key={idx}>
                     <img key={`image${idx}`} className='item-page-image' src={item.photoUrls}/>
                     <div  className='cart-item-detail'>
-                    <div  className='cart-dropdow-clear' onClick={()=>clearItemFromCart(item)}><i className="fas fa-times"></i></div>
+                    <div  className='cart-dropdow-clear' onClick={()=>deleteCartItem(item)}><i className="fas fa-times"></i></div>
                         <p key={`title${idx}`}>{item.title}</p>
                         <div className='cart-item-sizeqty'>
                         <p key={`size${idx}`}>size: {item.size}</p>
@@ -57,13 +57,13 @@ class CartDropDown extends React.Component{
 
 
 const mapStateToProps = (state, ownProps)=>({
-    cartItems: Object.values(state.entities.cart.cartItems),
     history: ownProps.history
   });
 
 const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden()),
-    clearItemFromCart: (item) => dispatch(clearItemFromCart(item))
+    deleteCartItem: (item) => dispatch(deleteCartItem(item)),
+  
 })
 
 
