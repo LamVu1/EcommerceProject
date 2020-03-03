@@ -24,27 +24,27 @@ export const fetchCartItem = (item) => {
     )
 };
 
-export const createCartItem = (item) => {
+export const createCartItem = (cart_item) => {
   
   return(
       $.ajax(
           {
               method: 'POST',
-              url: `/api/cart_items/new`,
-              data: item
+              url: `/api/cart_items`,
+              data: {cart_item}
           }
       )
   )
 };
 
-export const updateCartItem = (item) => {
+export const updateCartItem = (cart_item) => {
   
   return(
       $.ajax(
           {
               method: 'PATCH',
-              url: `/api/cart_items/${item.id}/edit`,
-              data: item
+              url: `/api/cart_items/${cart_item.id}`,
+              data: {cart_item}
           }
       )
   )

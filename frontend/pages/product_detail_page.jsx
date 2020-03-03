@@ -5,6 +5,7 @@ import { addItem } from '../reducers/cart/cart_actions';
 import { Link } from 'react-router-dom';
 import ProductSlider from '../components/product_slider_component';
 import { withRouter } from 'react-router-dom';
+import {createCartItem} from '../reducers/cart/cart_actions'
 
 
 class productDetail extends React.Component{
@@ -29,10 +30,11 @@ class productDetail extends React.Component{
     }
 
     addItemToCart(){
-
-        let prod = {...this.state.product};
+        let prod = {}
+        prod.product_id = this.state.product.id;
         prod.size = this.state.size;
-        this.props.addItem(prod)
+        prod.quantity = 1;
+        this.props.createCartItem(prod)
     }
 
     handleSize(e){
@@ -151,7 +153,7 @@ const mapStateToProps = (state,ownProps)=>{
 const mapDispatchToProps = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),
     fetchProducts: () => dispatch(fetchProducts()),
-    addItem: (item) => dispatch(addItem(item))
+    createCartItem: (item) => dispatch(createCartItem(item))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps) (productDetail));

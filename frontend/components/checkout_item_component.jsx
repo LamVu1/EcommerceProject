@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import {clearItemFromCart} from '../reducers/cart/cart_actions';
+import {deleteCartItem, updateCartItem} from '../reducers/cart/cart_actions';
 import { addItem, removeItem } from '../reducers/cart/cart_actions';
-
 
 
 class CheckoutItem extends React.Component{
@@ -18,15 +17,21 @@ class CheckoutItem extends React.Component{
     }
 
     handleClearItem(){
-        this.props.clearItemFromCart(this.props.item)
+        this.props.deleteCartItem(this.props.item)
     }
 
     handleAddItem(){
-        this.props.addItem(this.props.item)
+        this.props.item.quantity+=1
+        this.props.updateCartItem(this.props.item)
     }
 
     handleRemoveItem(){
-        this.props.removeItem(this.props.item)
+        if(this.props.item.quantity===1){
+            this.props.deleteCartItem(this.props.item)
+        }else{
+            this.props.item.quantity-=1
+            this.props.updateCartItem(this.props.item)
+        }
     }
 
     render(){
@@ -34,6 +39,7 @@ class CheckoutItem extends React.Component{
        
 
         let {item} = this.props
+        
         return(
             <div className='check-out-item'>
                 <div className='check-out-block'><Link to={`/product/${item.id}`}><img  className='check-out-image' src={item.photoUrls[0]}/></Link></div>
@@ -68,6 +74,7 @@ const mapDispatchToProps = dispatch => ({
     clearItemFromCart: (item) => dispatch(clearItemFromCart(item)),
     addItem: (item) => dispatch(addItem(item)),
     removeItem: (item) => dispatch(removeItem(item)),
+    deleteCartItem: (item) => dispatch(deleteCartItem(item)), updateCartItem: (item) => dispatch(updateCartItem(item))
 
 })
 
