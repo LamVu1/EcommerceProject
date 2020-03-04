@@ -1,0 +1,31 @@
+.item-like-div{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.like-btn{
+    border: none;
+    background-color: transparent;
+    outline: transparent;
+
+    i{
+        color: grey;    
+        font-size: 20px
+    }
+
+    i:hover{
+        color: red;
+    }
+}
+
+.unlike-btn{
+    border: none;
+    background-color: transparent;
+    outline: transparent;
+    i{
+        color: red;
+        font-size: 20px
+    }
+    
+}
