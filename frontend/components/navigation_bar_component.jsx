@@ -6,6 +6,7 @@ import CartDropdown from '../components/cart_dropdown_component';
 import { toggleCartHidden } from '../reducers/cart/cart_actions';
 import { withRouter } from 'react-router-dom';
 import {fetchCartItems} from '../reducers/cart/cart_actions'
+import {fetchLikes} from '../reducers/likes/like_actions';
 
 
 class NagivationBar extends React.Component{
@@ -16,6 +17,7 @@ class NagivationBar extends React.Component{
 
   componentDidMount(){
     this.props.fetchCartItems()
+    this.props.fetchLikes()
 }
 
   handleLogout(){
@@ -100,7 +102,8 @@ const mapStateToProps = (state, ownProps) => {
   const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     toggleCartHidden: ()=>dispatch(toggleCartHidden()),
-    fetchCartItems: ()=>dispatch(fetchCartItems())
+    fetchCartItems: ()=>dispatch(fetchCartItems()),
+    fetchLikes: ()=>dispatch(fetchLikes())
   })
 
 

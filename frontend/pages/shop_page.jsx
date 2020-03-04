@@ -100,7 +100,7 @@ class ShopPage extends React.Component {
                 <div className='search-div'>
                     <form className='search-form'>
                         <input onChange={this.handleSearch} type="text" name="" value={this.state.search} placeholder='Search'/>
-                        <i class="fas fa-search"></i>
+                        <i className="fas fa-search"></i>
                     </form>
                 </div>
                 <div className='filter-dropdown' onMouseLeave={this.handleHoverLeave}>
