@@ -23,11 +23,13 @@ import CheckoutPage from '../pages/checkout_page';
 import Footer from '../components/footer_component';
 import SignIn from '../components/sign_in_component';
 import SignUp from '../components/sign_up_component';
+import Loader from '../components/loader';
 
 
 const App = () => (
   
   <div className="main-div">
+    <Loader />
     <NagivationBar />
       <Switch>
         <ProtectedRoute exact path='/shop' component={ShopPage} />

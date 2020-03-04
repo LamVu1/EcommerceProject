@@ -52,7 +52,12 @@ class ShopPage extends React.Component {
         }
         else if(op==='high'){
             this.setState({products: this.state.products.sort((a,b)=> (a.price>b.price)?-1:1)}) 
-        }else{
+        }else if(op==='A-Z'){
+            this.setState({products: this.state.products.sort((a,b)=> (a.title<b.title)?-1:1)}) 
+        }else if(op==='Z-A'){
+            this.setState({products: this.state.products.sort((a,b)=> (a.title>b.title)?-1:1)}) 
+        }
+        else{
             return
         }   
     }
@@ -87,9 +92,15 @@ class ShopPage extends React.Component {
         
         return(
             <div className='shop-page'>
-                <div>
-                    <form>
-                        <input onChange={this.handleSearch} type="text" name="" value={this.state.search} placeholder='Search' />
+                <div className='filter-search-div'>
+
+
+
+                
+                <div className='search-div'>
+                    <form className='search-form'>
+                        <input onChange={this.handleSearch} type="text" name="" value={this.state.search} placeholder='Search'/>
+                        <i class="fas fa-search"></i>
                     </form>
                 </div>
                 <div className='filter-dropdown' onMouseLeave={this.handleHoverLeave}>
@@ -97,7 +108,10 @@ class ShopPage extends React.Component {
                     <div className='filter-options'>
                         <button className='filter-option' onClick={()=>this.handleFilter('low')}>Price: Low to High</button>
                         <button className='filter-option' onClick={()=>this.handleFilter('high')}>Price: High to Low</button>
+                        <button className='filter-option' onClick={()=>this.handleFilter('A-Z')}>Alphabet: A to Z</button>
+                        <button className='filter-option' onClick={()=>this.handleFilter('Z-A')}>Alphabet: Z to A</button>
                     </div>
+                </div>
                 </div>
                 <div className='shop-page-shoes'>
                 {products}
