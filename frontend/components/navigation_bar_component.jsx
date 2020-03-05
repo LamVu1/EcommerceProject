@@ -17,7 +17,6 @@ class NagivationBar extends React.Component{
 
   componentDidMount(){
     this.props.fetchCartItems()
-    this.props.fetchLikes()
 }
 
   handleLogout(){
@@ -46,6 +45,9 @@ class NagivationBar extends React.Component{
                               currentUser
                               ?
                               <div className='right-bar-content'>
+                                <Link to='/profile/1' className='profile-container'>
+                                    <img className='profile-img' src={window.profile}/>
+                                </Link>
                                 <button className='cart' onClick={toggleCartHidden}>
                                 <i className="fas fa-shopping-cart"></i>  
                                   {

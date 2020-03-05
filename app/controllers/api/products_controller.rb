@@ -5,10 +5,11 @@ class Api::ProductsController < ApplicationController
         render :index
     end
 
-    def show
-        @product = Product.find(params[:id])
-        if @product
-            render 'api/products/show'
+    def show    
+        @products = Product.where(id: params[:product_id])
+        
+        if @products
+            render :index
         else
             render json: @product.errors.full_messages, status: 422
         end

@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProduct, fetchProducts } from '../reducers/products/product_actions';
-import { addItem } from '../reducers/cart/cart_actions';
 import { Link } from 'react-router-dom';
 import ProductSlider from '../components/product_slider_component';
 import { withRouter } from 'react-router-dom';
-import {createCartItem} from '../reducers/cart/cart_actions'
+import {createCartItem} from '../reducers/cart/cart_actions';
+import { createLike, deleteLike } from '../reducers/likes/like_actions';
+import {fetchLikes} from '../reducers/likes/like_actions';
+
 
 
 class productDetail extends React.Component{
@@ -19,14 +21,17 @@ class productDetail extends React.Component{
         this.handleSize = this.handleSize.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.handleTop = this.handleTop.bind(this);
+        this.handleLike = this.handleLike.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchProduct(this.props.productId)
         .then(product =>{
-            this.setState({product: Object.values(product.product)[0]})
+            this.setState({product: Object.values(product.products)[0]})
         }).then(()=>{this.props.fetchProducts()}).then(()=>{this.handleTop()})
 
+        this.props.fetchLikes()
     }
 
     addItemToCart(){
@@ -54,6 +59,17 @@ class productDetail extends React.Component{
     handleTop(){
         document.documentElement.scrollTop = 0;
     }
+
+
+    handleLike(){
+        this.props.createLike(this.state.product.id)
+    }
+
+    handleUnlike(){
+       let like = this.props.likes.filter(like=>like.product_id===this.state.product.id)
+       this.props.deleteLike(like[0].id)
+    }
+
   
 
     render(){
@@ -102,11 +118,24 @@ class productDetail extends React.Component{
                             <p className='item-page-title'>{this.state.product.title}</p>
                             <p className='item-page-price'>${this.state.product.price}</p>
                         </div>
-                        <p className='item-page-description'>{this.state.product.description}
-                        </p>  
+                        <p className='item-page-description'>{this.state.product.description}</p>  
                         <p>Select Size</p>
                         {sizes}
                         <div className='add-item-btn' onClick={this.addItemToCart}>Add To Cart</div>
+                        {this.props.likes.filter(like=>like.product_id===this.state.product.id).length===0
+                            ?   <div className='favorite-btn' onClick={this.handleLike} >
+                                    
+                                    Favorite<i className="far fa-heart"></i>     
+                                    </div>
+                                
+                            :   <div className='unfavorite-btn'  onClick={this.handleUnlike} >
+                                    
+                                        Unfavorite<i className="fas fa-heart"></i>
+                                   
+                                </div>
+                        }
+                      
+
                     </div>
                 </div>
                 <div className='item-page-bottom'>
@@ -145,6 +174,8 @@ const mapStateToProps = (state,ownProps)=>{
             productId: ownProps.match.params.id,
             history: ownProps.history,
             products: state.entities.products,
+            likes: Object.values(state.entities.likes)
+
             
         }
     )
@@ -153,7 +184,11 @@ const mapStateToProps = (state,ownProps)=>{
 const mapDispatchToProps = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),
     fetchProducts: () => dispatch(fetchProducts()),
-    createCartItem: (item) => dispatch(createCartItem(item))
+    createCartItem: (item) => dispatch(createCartItem(item)),
+    createLike: (product_id)=>dispatch(createLike(product_id)),
+    deleteLike: (like_id)=>dispatch(deleteLike(like_id)),
+    fetchLikes: ()=>dispatch(fetchLikes())
+
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps) (productDetail));

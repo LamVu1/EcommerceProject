@@ -24,6 +24,7 @@ import Footer from '../components/footer_component';
 import SignIn from '../components/sign_in_component';
 import SignUp from '../components/sign_up_component';
 import Loader from '../components/loader';
+import ProfilePage from '../pages/profile_page';
 
 
 const App = () => (
@@ -34,6 +35,7 @@ const App = () => (
       <Switch>
         <ProtectedRoute exact path='/shop' component={ShopPage} />
         <ProtectedRoute exact path='/product/:id' component={productDetail}/>
+        <ProtectedRoute exact path='/profile/:id' component={ProfilePage}/>
         <ProtectedRoute exact path='/checkout' component={CheckoutPage}/> 
         <AuthRoute  path='/' component={LandingPage}/> 
         <Redirect to='/' />
