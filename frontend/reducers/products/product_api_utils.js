@@ -11,13 +11,14 @@ export const fetchProducts = () => {
 };
 
 
-export const fetchProduct = (id) => {
-  
+export const fetchProduct = (product_id) => {
+
     return(
         $.ajax(
             {
                 method: 'GET',
-                url: `/api/products/${id}`,
+                url: `/api/products/1`,
+                data: {product_id},
             }
         )
     )

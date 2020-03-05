@@ -18,6 +18,8 @@ class Api::LikesController < ApplicationController
         render "api/likes/index"
     end
 
+  
+
     def destroy
         
         @like = Like.find(params[:id])

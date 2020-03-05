@@ -23,6 +23,6 @@ return(
 export const fetchProduct = (id)=>(dispatch)=>{
     
     return(
-    APIUtil.fetchProduct(id).then( product => dispatch(receiveProduct(product)))
+    APIUtil.fetchProduct(id).then( product => dispatch(receiveProducts(product)))
     )
 }
