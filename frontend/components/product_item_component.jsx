@@ -15,7 +15,6 @@ class ProductItem extends React.Component{
 
     handleLike(){
         this.props.createLike(this.props.item.id)
-        console.log('yes')
     }
 
     handleUnlike(){

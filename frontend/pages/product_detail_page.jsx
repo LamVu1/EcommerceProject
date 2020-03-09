@@ -26,12 +26,12 @@ class productDetail extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchLikes()
         this.props.fetchProduct(this.props.productId)
         .then(product =>{
             this.setState({product: Object.values(product.products)[0]})
-        }).then(()=>{this.props.fetchProducts()}).then(()=>{this.handleTop()})
+        }).then(()=>{this.props.fetchProducts()})
 
-        this.props.fetchLikes()
     }
 
     addItemToCart(){
@@ -53,7 +53,7 @@ class productDetail extends React.Component{
     }
 
     handleBack(){
-        this.props.history.goBack();
+        this.props.history.push(`/shop`);
     }
 
     handleTop(){
@@ -73,7 +73,7 @@ class productDetail extends React.Component{
   
 
     render(){
-
+        this.handleTop();
         let {products} = this.props;   
         
        

@@ -42,11 +42,17 @@ class ProfilePage extends React.Component{
         
             
         return(
-            <div>
+            <div className='likes-page'>
                 <h1>Favorites</h1>
-                <ul>
+                <div className='likes-container'>
                     {products}
-                </ul>
+                    <div className='like-empty-div'></div>
+                    <div className='like-empty-div'></div>
+                    <div className='like-empty-div'></div>
+                 
+
+
+                </div>
             </div>
         )
     }

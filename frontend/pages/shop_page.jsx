@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchProducts } from '../reducers/products/product_actions';
 import ProductItem from '../components/product_item_component';
 import SlideShow from '../components/slideshow';
-
+import {fetchLikes} from '../reducers/likes/like_actions';
 
 class ShopPage extends React.Component {
    constructor(props){
@@ -23,6 +23,7 @@ class ShopPage extends React.Component {
    }
     componentDidMount(){
         this.props.fetchAllProducts().then(products => this.setState({products: Object.values(products.products)}))
+        this.props.fetchLikes()
     }
     
     handleTop(){
@@ -140,7 +141,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchAllProducts: () => dispatch(fetchProducts())
+    fetchAllProducts: () => dispatch(fetchProducts()),
+    fetchLikes: ()=>dispatch(fetchLikes())
 })
 
 

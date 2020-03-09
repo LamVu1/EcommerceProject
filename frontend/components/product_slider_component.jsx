@@ -66,7 +66,6 @@ class ProductSlider extends React.Component{
 
     handleLink(product){
         this.props.history.push(`/product/${product.id}`)
-        
         location.reload()
     }
 

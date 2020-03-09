@@ -1,0 +1,15 @@
+.likes-page{
+    h1{
+        text-align: center;
+    }
+}
+
+.likes-container{
+    display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+}
+
+.like-empty-div{
+    width: 25%;
+}
