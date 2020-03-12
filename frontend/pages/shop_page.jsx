@@ -5,6 +5,9 @@ import { fetchProducts } from '../reducers/products/product_actions';
 import ProductItem from '../components/product_item_component';
 import SlideShow from '../components/slideshow';
 import {fetchLikes} from '../reducers/likes/like_actions';
+import { toggleLoader } from '../reducers/ui/ui_actions';
+import {fetchCartItems} from '../reducers/cart/cart_actions'
+
 
 class ShopPage extends React.Component {
    constructor(props){
@@ -15,7 +18,6 @@ class ShopPage extends React.Component {
        }
        this.handleTop = this.handleTop.bind(this);
        this.handleFilter = this.handleFilter.bind(this);
-    //    this.handleHover = this.handleHover.bind(this);
        this.handleHoverEnter = this.handleHoverEnter.bind(this);
        this.handleHoverLeave = this.handleHoverLeave.bind(this);
        this.handleSearch = this.handleSearch.bind(this);
@@ -24,6 +26,10 @@ class ShopPage extends React.Component {
     componentDidMount(){
         this.props.fetchAllProducts().then(products => this.setState({products: Object.values(products.products)}))
         this.props.fetchLikes()
+        this.props.fetchCartItems()
+        this.props.toggleLoader()
+        setTimeout(()=>{this.props.toggleLoader()}, 500);
+
     }
     
     handleTop(){
@@ -142,7 +148,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchAllProducts: () => dispatch(fetchProducts()),
-    fetchLikes: ()=>dispatch(fetchLikes())
+    fetchLikes: ()=>dispatch(fetchLikes()),
+    toggleLoader: () => dispatch(toggleLoader()),
+    fetchCartItems: ()=>dispatch(fetchCartItems())
 })
 
 

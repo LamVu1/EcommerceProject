@@ -23,7 +23,7 @@ import CheckoutPage from '../pages/checkout_page';
 import Footer from '../components/footer_component';
 import SignIn from '../components/sign_in_component';
 import SignUp from '../components/sign_up_component';
-import Loader from '../components/loader';
+import Loader from '../components/loader_component';
 import ProfilePage from '../pages/profile_page';
 
 

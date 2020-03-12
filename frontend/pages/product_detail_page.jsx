@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import {createCartItem} from '../reducers/cart/cart_actions';
 import { createLike, deleteLike } from '../reducers/likes/like_actions';
 import {fetchLikes} from '../reducers/likes/like_actions';
+import { toggleLoader } from '../reducers/ui/ui_actions';
 
 
 
@@ -31,7 +32,8 @@ class productDetail extends React.Component{
         .then(product =>{
             this.setState({product: Object.values(product.products)[0]})
         }).then(()=>{this.props.fetchProducts()})
-
+        this.props.toggleLoader()
+        setTimeout(()=>{this.props.toggleLoader()}, 500)
     }
 
     addItemToCart(){
@@ -187,7 +189,9 @@ const mapDispatchToProps = dispatch => ({
     createCartItem: (item) => dispatch(createCartItem(item)),
     createLike: (product_id)=>dispatch(createLike(product_id)),
     deleteLike: (like_id)=>dispatch(deleteLike(like_id)),
-    fetchLikes: ()=>dispatch(fetchLikes())
+    fetchLikes: ()=>dispatch(fetchLikes()),
+    toggleLoader: () => dispatch(toggleLoader())
+
 
 })
 

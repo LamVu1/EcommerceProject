@@ -16,7 +16,9 @@ class NagivationBar extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchCartItems()
+    if(this.props.currentUser!==null){
+      this.props.fetchCartItems()
+    }
 }
 
   handleLogout(){
@@ -36,8 +38,6 @@ class NagivationBar extends React.Component{
     
     let content;
     
-    
-
     
     content = <div className="header">
                         <Link to='/shop'><img className='logo' src={window.img1}/></Link>

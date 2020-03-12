@@ -41,6 +41,10 @@
 .item-images{
     height: 80%;
     width: 100%;
+
+    img{
+        object-fit: cover;
+    }
 }
 
 .item-image-main{

@@ -1,7 +1,8 @@
-import { TOGGLE_HOVER } from './ui_actions';
+import { TOGGLE_HOVER, TOGGLE_LOADER } from './ui_actions';
 
 const INITIAL_STATE = {
-    hidden: true,   
+    hidden: true,
+    loader: false   
 };
 
 
@@ -13,6 +14,11 @@ const uiReducer = (oldstate = INITIAL_STATE, action) => {
         ...oldstate,
         hidden: !oldstate.hidden
     }
+    case TOGGLE_LOADER:
+      return{
+        ...oldstate,
+        loader: !oldstate.loader
+      }
     default:
       return oldstate;
   }

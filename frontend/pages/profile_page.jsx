@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProduct } from '../reducers/products/product_actions';
 import {fetchLikes} from '../reducers/likes/like_actions';
+import { toggleLoader } from '../reducers/ui/ui_actions';
+
 
 import ProductItem from '../components/product_item_component';
 
@@ -25,7 +27,9 @@ class ProfilePage extends React.Component{
                 
                         this.setState({products: [...this.state.products, ...Object.values(product.products)] });
                         })
-    })   
+    })
+    this.props.toggleLoader()
+        setTimeout(()=>{this.props.toggleLoader()}, 500)   
     }
 
 
@@ -69,7 +73,9 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = dispatch => ({
     fetchProduct: (id)=>dispatch(fetchProduct(id)),
-    fetchLikes: ()=>dispatch(fetchLikes())
+    fetchLikes: ()=>dispatch(fetchLikes()),
+    toggleLoader: () => dispatch(toggleLoader())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
