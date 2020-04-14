@@ -30,11 +30,17 @@ Allow the user to use the application's features only when signed in.
 Allow the user to browse products. 
 
 Users can sort products by name and price. 
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/sort.png)
 
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/sortingsnip.png)
 
-Users can also search product by name.
+
+Users can also search a product by name.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/searchingsnip.png)
 
 
 ## Likes
@@ -57,6 +63,8 @@ User's can view their favorite products on their profile page.
 User's can add a product to their shopping cart on the product's detail page after they select a shoe size. They can have multiple items of different size.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/productdetail.png)
+
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoppingcart.png)
 
 ## Checkout 
@@ -67,4 +75,9 @@ User's when be sent  to the checkout page when they are ready. They can change t
 
 User's can checkout using the Stripe test checkout component. They can enter the test card information displayed on the page to experience the checkout process.
 
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripe.png)
+
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripesnip.png)
+
