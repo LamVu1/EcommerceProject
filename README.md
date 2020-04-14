@@ -1,5 +1,5 @@
 # [MyShoeShop](https://myshoeshop.herokuapp.com/#/)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/landing.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shop.png)
 # Overview
 Scribbblez is a web application inspired by Dribbble a social media platform for designers and artists to share their artwork.
 
@@ -22,11 +22,15 @@ Scribbblez backend utilizes Ruby on Rails web application framework and PostgreS
 ## Sign In/Sign Up
 Allow the user to use the application's features only when signed in. User's can upload a profile picture when they are signing up.
 
-![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Signin.png)
-![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/Signup.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/signin.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/signup.png)
 
 Handling image preview:
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/imagepreview.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/productdetail.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoppingcart.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/checkout.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripe.png)
 
 
 ## Post
@@ -44,38 +48,12 @@ Each post opens up at modal.
 Users can leave comments and like a post and a comment.
 A posts status detail will show the total likes and views this post received.
 
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/liked.png)
-![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/likesnippet.png)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/comments.png)
-
-![alt text](https://github.com/LamVu1/Sribbble-Clone-App/blob/master/app/assets/images/status.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/like.png)
 
 ## Profile
 User's can view their posts, liked posts, and other users they followed. User's can also leave a profile message or introduction for other user's to see.
 
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/profile.png)
+![alt text](hhttps://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png)
 
-Posts the user liked.
-
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/likedposts.png)
-
-List of the user's followers.
-
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/followers.png)
-
-
-## Error Handling
-User must be logged in to like a post, follow another user, comment on a post, or liking a comment.
-
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/errors.png)
-
-
-User must enter the correct information to sign up or log in to the website.
-
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/errors2.png)
-
-User must enter the required information to publish a post.
-
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/error2.png)
 
 
