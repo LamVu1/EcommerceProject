@@ -27,13 +27,20 @@ Allow the user to use the application's features only when signed in.
 
 
 ## Browsing Products
-Allow the user to browse products. Users can sort products by price and name. Users can also search product by name.
+Allow the user to browse products. 
+
+Users can sort products by name and price. 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/sort.png)
+
+
+Users can also search product by name.
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
 
 
 ## Likes
 Users can like or favorite a product on both the products page or the product's detail page.
+
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favoritesp.png)
 
 
@@ -42,7 +49,8 @@ Users can like or favorite a product on both the products page or the product's 
 
 ## Profile
 User's can view their favorite products on their profile page.
-https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png
+
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png)
 
 
 ## Shopping Cart
@@ -53,7 +61,10 @@ User's can add a product to their shopping cart on the product's detail page aft
 
 ## Checkout 
 User's when be sent  to the checkout page when they are ready. They can change the quantity or remove an item on this page.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/checkout.png)
 
+
 User's can checkout using the Stripe test checkout component. They can enter the test card information displayed on the page to experience the checkout process.
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripe.png)
