@@ -36,11 +36,12 @@ Users can sort products by name and price.
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/sortingsnip.png)
 
 
+
 Users can also search a product by name.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
-
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/searchingsnip.png)
+
 
 
 ## Likes
@@ -53,10 +54,12 @@ Users can like or favorite a product on both the products page or the product's 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/like.png)
 
 
+
 ## Profile
 User's can view their favorite products on their profile page.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png)
+
 
 
 ## Shopping Cart
@@ -67,7 +70,8 @@ User's can add a product to their shopping cart on the product's detail page aft
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoppingcart.png)
 
-## Checkout 
+
+## Checking Out 
 User's when be sent  to the checkout page when they are ready. They can change the quantity or remove an item on this page.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/checkout.png)
