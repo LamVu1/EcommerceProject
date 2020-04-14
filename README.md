@@ -25,22 +25,35 @@ Allow the user to use the application's features only when signed in.
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/signin.png)
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/signup.png)
 
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/productdetail.png)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoppingcart.png)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/checkout.png)
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripe.png)
-
 
 ## Browsing Products
-Allow the users to post images by either browsing file or drag and drop.
+Allow the user to browse products. Users can sort products by price and name. Users can also search product by name.
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/sort.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
+
 
 ## Likes
-Users can like a product.
+Users can like or favorite a product on both the products page or the product's detail page.
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favoritesp.png)
+
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/like.png)
 
+
 ## Profile
-User's can view their favorite products.
-![alt text](hhttps://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png)
+User's can view their favorite products on their profile page.
+https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png
 
 
+## Shopping Cart
+User's can add a product to their shopping cart on the product's detail page after they select a shoe size. They can have multiple items of different size.
 
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/productdetail.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/shoppingcart.png)
+
+## Checkout 
+User's when be sent  to the checkout page when they are ready. They can change the quantity or remove an item on this page.
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/checkout.png)
+
+User's can checkout using the Stripe test checkout component. They can enter the test card information displayed on the page to experience the checkout process.
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/stripe.png)
