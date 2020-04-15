@@ -120,7 +120,7 @@ class ShopPage extends React.Component {
                         ?
                         <i className="fas fa-search"></i>
                         :
-                        <i onClick={this.handleClear} class="fas fa-times"></i>
+                        <div className='search-clear'><i onClick={this.handleClear} className="fas fa-times"></i></div>
                         }
                     </form>
                 </div>
