@@ -21,6 +21,7 @@ class ShopPage extends React.Component {
        this.handleHoverEnter = this.handleHoverEnter.bind(this);
        this.handleHoverLeave = this.handleHoverLeave.bind(this);
        this.handleSearch = this.handleSearch.bind(this);
+       this.handleClear = this.handleClear.bind(this);
 
    }
     componentDidMount(){
@@ -59,14 +60,20 @@ class ShopPage extends React.Component {
         }
         else if(op==='high'){
             this.setState({products: this.state.products.sort((a,b)=> (a.price>b.price)?-1:1)}) 
-        }else if(op==='A-Z'){
+        }
+        else if(op==='A-Z'){
             this.setState({products: this.state.products.sort((a,b)=> (a.title<b.title)?-1:1)}) 
-        }else if(op==='Z-A'){
+        }
+        else if(op==='Z-A'){
             this.setState({products: this.state.products.sort((a,b)=> (a.title>b.title)?-1:1)}) 
         }
         else{
             return
         }   
+    }
+
+    handleClear(){
+        this.setState({search: ''})
     }
   
     render(){
@@ -107,7 +114,14 @@ class ShopPage extends React.Component {
                 <div className='search-div'>
                     <form className='search-form'>
                         <input onChange={this.handleSearch} type="text" name="" value={this.state.search} placeholder='Search'/>
+                        {this.state.search===''
+                     
+
+                        ?
                         <i className="fas fa-search"></i>
+                        :
+                        <i onClick={this.handleClear} class="fas fa-times"></i>
+                        }
                     </form>
                 </div>
                 <div className='filter-dropdown' onMouseLeave={this.handleHoverLeave}>
@@ -121,7 +135,10 @@ class ShopPage extends React.Component {
                 </div>
                 </div>
                 <div className='shop-page-shoes'>
-                {products}
+                {products.length!==0
+                ?products
+                : <div className='empty-search'>No Items Found</div>
+                }
                     <div className='shop-empty-div'></div>
                     <div className='shop-empty-div'></div>
                     <div className='shop-empty-div'></div>

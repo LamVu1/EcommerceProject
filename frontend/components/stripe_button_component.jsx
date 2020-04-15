@@ -13,6 +13,8 @@ const StripeCheckoutButton = ({ price }) => {
     // email = 'Demo@email.com'
     
     return(
+
+
         <StripeCheckout
             label = 'Place Order'
             name = 'Shoe Shop'
@@ -24,6 +26,7 @@ const StripeCheckoutButton = ({ price }) => {
             stripeKey = {publishableKey}
             allowRememberMe = {false}
         />
+        
     )
 };
 
