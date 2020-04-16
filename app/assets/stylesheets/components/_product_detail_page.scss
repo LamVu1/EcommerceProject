@@ -43,18 +43,20 @@
 
 .item-page-detail-top{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .item-page-title{
     font-weight: 800;
     letter-spacing: .5px;
     font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 50px;
 }
 
 .item-page-price{
-    align-self: center;
+    margin-top: 10px;
 }
 
 .item-page-description{
@@ -161,3 +163,27 @@
 
     }
 }
+
+
+@media only screen and (max-width: 1200px) {
+    .item-page-top{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+
+        .item-page-image-section{
+            width: 100%;
+            margin: 0;
+        }
+
+        .item-page-detail-section {
+            width: 100%;
+            margin-top: 50px;
+        }
+    }
+
+   
+
+    
+}
+       

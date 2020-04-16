@@ -27,6 +27,8 @@ class productDetail extends React.Component{
     }
 
     componentDidMount(){
+        this.handleTop();
+
         this.props.fetchLikes()
         this.props.fetchProduct(this.props.productId)
         .then(product =>{
@@ -75,7 +77,12 @@ class productDetail extends React.Component{
   
 
     render(){
-        this.handleTop();
+        if(document.documentElement.scrollTop > 5500){
+            
+            this.handleTop();
+            console.log(document.documentElement.scrollTop)
+
+        }
         let {products} = this.props;   
         
        
@@ -88,9 +95,11 @@ class productDetail extends React.Component{
                 )
             })         
          }
-
+         
          let sizes = <div className='size-menu'>
-                         {[7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13].map((num) =>{
+                <div key = {7} className='size-item selected' onClick={this.handleSize}>7</div>
+                                
+                         {[7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13].map((num) =>{
                             return(
                                 <div key={num} className='size-item' onClick={this.handleSize}>{num}</div>
                                 )
