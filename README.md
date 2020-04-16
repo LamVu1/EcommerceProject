@@ -42,7 +42,10 @@ Users can also search a product by name.
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/notitemsfound.png)
 
+
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/searchingsnip.png)
+
 
 
 
