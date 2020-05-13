@@ -40,7 +40,12 @@ Users can sort products by name and price.
 Users can also search a product by name.
 
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/search.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/notitemsfound.png)
+
+
+
 ![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/searchingsnip.png)
+
 
 
 
@@ -58,7 +63,7 @@ Users can like or favorite a product on both the products page or the product's 
 ## Profile
 User's can view their favorite products on their profile page.
 
-![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/favorites.png)
+![alt text](https://app-ecommerce-seeds.s3-us-west-1.amazonaws.com/myfavorites.png)
 
 
 
