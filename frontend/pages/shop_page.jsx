@@ -82,14 +82,7 @@ class ShopPage extends React.Component {
 
         let filteredSearch = this.state.products.filter((ele)=> ele.title.toLowerCase().includes(this.state.search.toLowerCase()))
         
-        let products = filteredSearch.map((product, id)=>{
-            return(
-                <ProductItem 
-                key = {id}
-                item = {product}
-                />
-            )
-        })
+      
 
         
        
